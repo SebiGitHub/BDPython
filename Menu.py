@@ -1,6 +1,8 @@
 # import mysql.connector
 import sqlite3
 import mariadb
+import psycopg
+import psycopg_binary
 import sys
 
 
@@ -16,7 +18,7 @@ class Menu:
             print("\nMENU DE BASES DE DATOS")
             print("*************************")
             print("1- PostgreSQL")
-            print("2- MySQL")
+            print("2- MariaDB")
             print("3- SQLite3")
             print("0- Salir")
             print("*************************")
@@ -47,7 +49,35 @@ class Menu:
 
 
     def crudPostgreSQL(self):
-        pass
+        # Conectar a la base de datos ademas del cursor
+        print("\n*************************************************")
+        print("Conectar con la base de datos PRESIONA ENTER")
+        input()
+
+        # Conectar con MariaDB
+        try:
+            db = psycopg.connect(
+                user="postgres",
+                password="1234",
+                host="localhost",
+                port=5432,
+                dbname="dbpython"
+
+            )
+            print("Te has conecetado con exito")
+        except psycopg.Error as e:
+            print(f"Error de conexion con la db MariaDB: {e}")
+
+        print("\nHabilitar el cursor PRESIONA ENTER")
+        input()
+        cur = db.cursor()
+        print("Cursor habilitado con exito PRESIONA ENTER")
+        input()
+
+        self.maldades(db, cur)
+
+
+
 
     def crudMariaDB(self):
         #Conectar a la base de datos ademas del cursor
@@ -122,7 +152,7 @@ class Menu:
                         autor TEXT NOT NULL,
                         genero TEXT NOT NULL,
                         precio REAL NOT NULL,
-                        titulo REAL NOT NULL,
+                        titulo TEXT NOT NULL,
                         coso REAL NOT NULL
                     );
                 """
@@ -150,7 +180,7 @@ class Menu:
                 INSERT INTO SebastianExpositoRuiz
                 (autor, genero, precio, titulo, coso)
                 VALUES
-                ('Stephen King', 'Terror', 115,'Cementerio de animales', '1'),
+                ('Stephen King', 'Terror', 115, 'Cementerio de animales', '1'),
                 ('Alfred Bester', 'Ciencia ficción', 200,'Las estrellas, mi destino', '2'),
                 ('Margaret Atwood1', 'Ciencia ficción', 150,'El cuento de la cfriada', '3'),
                 ('Margaret Atwood2', 'Ciencia ficción', 150,'El cuento de la crriada', '4'),
@@ -204,10 +234,10 @@ class Menu:
             ids_a_eliminar = [(3,), (4,)]  # Cada id debe ser una tupla
 
             # Sentencia para eliminar
-            sentencia = "DELETE FROM SebastianExpositoRuiz WHERE coso = ?;"
+            sentencia = "DELETE FROM SebastianExpositoRuiz WHERE coso = '1';"
 
             # Eliminar los registros con executemany
-            cursor.executemany(sentencia, ids_a_eliminar)
+            cursor.execute(sentencia)
 
             print("\nDatos eliminados exitosamente PRESIONA ENTER")
             input()
