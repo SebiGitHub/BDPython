@@ -24,26 +24,25 @@ class Menu:
             print("*************************")
 
             #Pedir opcion de las bases de datos disponibles
-            opc = int(input("\nIntroduzca alguna opcion: "))
+            opc = input("\nIntroduzca alguna opcion: ")
 
             # Comprobar que no sea nulo
-            if opc == 1:
-                print("\nBienvenido a PostgreSQL!")
-                self.crudPostgreSQL()
-            elif opc == 2:
-                print("\nBienvenido a MariaDB!")
-                self.crudMariaDB()
-            elif opc == 3:
-                print("\nBienvenido a SQLite3!")
-                self.crudSQLite3()
-            elif opc == 0:
-                print("Saliendo del programa")
-                self.ejecutar = False
-                exit()
-            #opc no existe o es un valor distinto a entero
-            elif not opc:
-                print("No escribiste nada")
-                exit()
+            if opc in ["0","1","2","3"]:
+                if opc == "1":
+                    print("\nBienvenido a PostgreSQL!")
+                    self.crudPostgreSQL()
+                elif opc == "2":
+                    print("\nBienvenido a MariaDB!")
+                    self.crudMariaDB()
+                elif opc == "3":
+                    print("\nBienvenido a SQLite3!")
+                    self.crudSQLite3()
+                elif opc == "0":
+                    print("Saliendo del programa")
+                    self.ejecutar = False
+                    exit()
+            else:
+                print("Ingrese una opcion válida")
 
 
 
