@@ -62,15 +62,16 @@ class Menu:
                 password="1234",
                 host="localhost",
                 port=5432,
-                dbname="dbpython"
+                dbname="bdpython"
 
             )
             print("2/20 Te has conecetado con exito PRESIONA ENTER")
             input()
+
         except psycopg.Error as e:
             print(f"Error de conexion con la db MariaDB: {e}")
 
-        print("\n3/20 Habilitar el cursor PRESIONA ENTER")
+        print("3/20 Habilitar el cursor PRESIONA ENTER")
         input()
         cur = db.cursor()
         print("4/20 Cursor habilitado con exito PRESIONA ENTER")
@@ -94,15 +95,16 @@ class Menu:
                 password="",
                 host="localhost",
                 port=3306,
-                database="dbpython"
+                database="bdpython"
 
             )
             print("2/20 Te has conectado con exito PRESIONA ENTER")
             input()
+
         except mariadb.Error as e:
             print(f"Error de conexion con la db MariaDB: {e}")
 
-        print("\n3/20 Habilitar el cursor PRESIONA ENTER")
+        print("3/20 Habilitar el cursor PRESIONA ENTER")
         input()
         cur = db.cursor()
         print("4/20 Cursor habilitado con exito PRESIONA ENTER")
@@ -122,7 +124,7 @@ class Menu:
         print("2/20 Te has conectado con exito PRESIONA ENTER")
         input()
 
-        print("\n3/20 Habilitar el cursor PRESIONA ENTER")
+        print("3/20 Habilitar el cursor PRESIONA ENTER")
         input()
         cursor = bd.cursor()
         print("4/20 Cursor habilitado con exito PRESIONA ENTER")
@@ -135,9 +137,9 @@ class Menu:
     def maldades(self, bd, cursor):
         # CRUD
         try:
-            print("\n*************************************************")
-            print("CRUD")
-            print("*************************************************")
+            print("\n************")
+            print("    CRUD")
+            print("************")
 
             print("\nCREAR")
             print("*************************************************")
@@ -168,7 +170,7 @@ class Menu:
             print("6/20 Tablas creadas correctamente PRESIONA ENTER")
             input()
 
-            print("\n7/20 Commit para guardar las tablas PRESIONA ENTER")
+            print("7/20 Commit para guardar las tablas PRESIONA ENTER")
             input()
             bd.commit()  # Guardamos los cambios al terminar el ciclo
             print("8/20 Guardado correctamente PRESIONA ENTER")
@@ -198,7 +200,7 @@ class Menu:
             print("10/20 Datos guardados exitosamente PRESIONA ENTER")
             input()
 
-            print("\n11/20 Commit para guardar las tablas PRESIONA ENTER")
+            print("11/20 Commit para guardar las tablas PRESIONA ENTER")
             input()
 
             bd.commit()  # Guardamos los cambios al terminar el ciclo
@@ -244,14 +246,14 @@ class Menu:
             # Eliminar los registros con executemany
             cursor.execute(sentencia)
 
-            print("\n16/20 Datos eliminados exitosamente PRESIONA ENTER")
+            print("16/20 Datos eliminados exitosamente PRESIONA ENTER")
             input()
 
             print("17/20 Guardar los cambios realizados PRESIONA ENTER")
             input()
             bd.commit()
 
-            print("\n18/20 Datos guardados PRESIONA ENTER")
+            print("18/20 Datos guardados PRESIONA ENTER")
             input()
 
             # Leer datos
