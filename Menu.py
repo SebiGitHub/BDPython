@@ -76,7 +76,7 @@ class Menu:
         print("4/20 Cursor habilitado con exito PRESIONA ENTER")
         input()
 
-        self.maldades(db, cur)
+        self.crud(db, cur)
 
 
 
@@ -109,7 +109,7 @@ class Menu:
         print("4/20 Cursor habilitado con exito PRESIONA ENTER")
         input()
 
-        self.maldades(db, cur)
+        self.crud(db, cur)
 
 
     def crudSQLite3(self):
@@ -129,11 +129,11 @@ class Menu:
         print("4/20 Cursor habilitado con exito PRESIONA ENTER")
         input()
 
-        self.maldades(bd, cursor)
+        self.crud(bd, cursor)
 
 
 
-    def maldades(self, bd, cursor):
+    def crud(self, bd, cursor):
         # CRUD
         try:
             print("\n************")
