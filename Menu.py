@@ -27,10 +27,6 @@ class Menu:
             opc = int(input("\nIntroduzca alguna opcion: "))
 
             # Comprobar que no sea nulo
-            if not opc:
-                print("No escribiste nada")
-                exit()
-
             if opc == 1:
                 print("\nBienvenido a PostgreSQL!")
                 self.crudPostgreSQL()
@@ -44,6 +40,11 @@ class Menu:
                 print("Saliendo del programa")
                 self.ejecutar = False
                 exit()
+            #opc no existe o es un valor distinto a entero
+            elif not opc:
+                print("No escribiste nada")
+                exit()
+
 
 
 
@@ -51,7 +52,7 @@ class Menu:
     def crudPostgreSQL(self):
         # Conectar a la base de datos ademas del cursor
         print("\n*************************************************")
-        print("Conectar con la base de datos PRESIONA ENTER")
+        print("1/20 Conectar con la base de datos PRESIONA ENTER")
         input()
 
         # Conectar con MariaDB
@@ -64,14 +65,15 @@ class Menu:
                 dbname="dbpython"
 
             )
-            print("Te has conecetado con exito")
+            print("2/20 Te has conecetado con exito PRESIONA ENTER")
+            input()
         except psycopg.Error as e:
             print(f"Error de conexion con la db MariaDB: {e}")
 
-        print("\nHabilitar el cursor PRESIONA ENTER")
+        print("\n3/20 Habilitar el cursor PRESIONA ENTER")
         input()
         cur = db.cursor()
-        print("Cursor habilitado con exito PRESIONA ENTER")
+        print("4/20 Cursor habilitado con exito PRESIONA ENTER")
         input()
 
         self.maldades(db, cur)
@@ -82,7 +84,7 @@ class Menu:
     def crudMariaDB(self):
         #Conectar a la base de datos ademas del cursor
         print("\n*************************************************")
-        print("Conectar con la base de datos PRESIONA ENTER")
+        print("1/20 Conectar con la base de datos PRESIONA ENTER")
         input()
 
         # Conectar con MariaDB
@@ -95,14 +97,15 @@ class Menu:
                 database="dbpython"
 
             )
-            print("Te has conecetado con exito")
+            print("2/20 Te has conectado con exito PRESIONA ENTER")
+            input()
         except mariadb.Error as e:
             print(f"Error de conexion con la db MariaDB: {e}")
 
-        print("\nHabilitar el cursor PRESIONA ENTER")
+        print("\n3/20 Habilitar el cursor PRESIONA ENTER")
         input()
         cur = db.cursor()
-        print("Cursor habilitado con exito PRESIONA ENTER")
+        print("4/20 Cursor habilitado con exito PRESIONA ENTER")
         input()
 
         self.maldades(db, cur)
@@ -112,16 +115,17 @@ class Menu:
 
         #Conectar a la base de datos ademas del cursor
         print("\n*************************************************")
-        print("Conectar con la base de datos PRESIONA ENTER")
+        print("1/20 Conectar con la base de datos PRESIONA ENTER")
         input()
 
         bd = sqlite3.connect("SebastianExpositoRuiz.db")
-        print("Base de datos abierta")
+        print("2/20 Te has conectado con exito PRESIONA ENTER")
+        input()
 
-        print("\nHabilitar el cursor PRESIONA ENTER")
+        print("\n3/20 Habilitar el cursor PRESIONA ENTER")
         input()
         cursor = bd.cursor()
-        print("Cursor habilitado con exito PRESIONA ENTER")
+        print("4/20 Cursor habilitado con exito PRESIONA ENTER")
         input()
 
         self.maldades(bd, cursor)
@@ -137,10 +141,11 @@ class Menu:
 
             print("\nCREAR")
             print("*************************************************")
-            print("Crear tablas PRESIONA ENTER")
+            print("5/20 Crear tablas PRESIONA ENTER")
             input()
 
 
+            #Eliminar la tabla con mi nombre si es que existe para evitar posibles errores futuros.
             cursor.execute("DROP TABLE IF EXISTS SebastianExpositoRuiz")
             bd.commit()
 
@@ -160,19 +165,19 @@ class Menu:
             for tabla in tablas:
                 cursor.execute(tabla)
 
-            print("Tablas creadas correctamente PRESIONA ENTER")
+            print("6/20 Tablas creadas correctamente PRESIONA ENTER")
             input()
 
-            print("\nCommit para guardar las tablas PRESIONA ENTER")
+            print("\n7/20 Commit para guardar las tablas PRESIONA ENTER")
             input()
             bd.commit()  # Guardamos los cambios al terminar el ciclo
-            print("Guardado correctamente PRESIONA ENTER")
+            print("8/20 Guardado correctamente PRESIONA ENTER")
             input()
 
             # Insertar datos
             print("\nINSERTAR")
             print("*************************************************")
-            print("Insertar valores para las tablas PRESIONA ENTER")
+            print("9/20 Insertar valores para las tablas PRESIONA ENTER")
             input()
 
             libros = [
@@ -190,20 +195,20 @@ class Menu:
             for sentencia in libros:
                 cursor.execute(sentencia)
 
-            print("Datos guardados exitosamente PRESIONA ENTER")
+            print("10/20 Datos guardados exitosamente PRESIONA ENTER")
             input()
 
-            print("\nCommit para guardar las tablas PRESIONA ENTER")
+            print("\n11/20 Commit para guardar las tablas PRESIONA ENTER")
             input()
 
             bd.commit()  # Guardamos los cambios al terminar el ciclo
-            print("Guardado correctamente PRESIONA ENTER")
+            print("12/20 Guardado correctamente PRESIONA ENTER")
             input()
 
             # Leer datos
             print("\nMOSTRAR")
             print("*************************************************")
-            print("Mostrar los datos PRESIONA ENTER")
+            print("13/20 Mostrar los datos PRESIONA ENTER")
             input()
 
             # Consulta SQL
@@ -221,13 +226,13 @@ class Menu:
 
             print("+{:-<15}+{:-<15}+{:-<10}+{:-<50}+{:-<10}+".format("", "", "", "", ""))
 
-            print("\nContinuar PRESIONA ENTER")
+            print("\n14/20 Continuar PRESIONA ENTER")
             input()
 
             # Eliminar
             print("\nELIMINAR")
             print("*************************************************")
-            print("Eliminar datos PRESIONA ENTER")
+            print("15/20 Eliminar datos PRESIONA ENTER")
             input()
 
             # Lista de rowid a eliminar
@@ -239,20 +244,20 @@ class Menu:
             # Eliminar los registros con executemany
             cursor.execute(sentencia)
 
-            print("\nDatos eliminados exitosamente PRESIONA ENTER")
+            print("\n16/20 Datos eliminados exitosamente PRESIONA ENTER")
             input()
 
-            print("Guardar los cambios realizados PRESIONA ENTER")
+            print("17/20 Guardar los cambios realizados PRESIONA ENTER")
             input()
             bd.commit()
 
-            print("\nDatos guardados PRESIONA ENTER")
+            print("\n18/20 Datos guardados PRESIONA ENTER")
             input()
 
             # Leer datos
             print("\nMOSTRAR")
             print("*************************************************")
-            print("Mostrar los datos PRESIONA ENTER")
+            print("19/20 Mostrar los datos PRESIONA ENTER")
             input()
 
             # Consulta SQL
@@ -270,7 +275,7 @@ class Menu:
 
             print("+{:-<15}+{:-<15}+{:-<10}+{:-<50}+{:-<10}+".format("", "", "", "", ""))
 
-            print("\nContinuar PRESIONA ENTER")
+            print("\n20/20 Continuar PRESIONA ENTER")
             input()
 
         except sqlite3.OperationalError as error:
