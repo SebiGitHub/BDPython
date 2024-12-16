@@ -290,14 +290,14 @@ class Menu:
             cursor.execute(sentencia)
 
             # Mostrar los datos en un formato tabular
-            libros = cursor.fetchall()  # Obtener todos los registros de la consulta
+            tablitas = cursor.fetchall()  # Obtener todos los registros de la consulta
             print("+{:-<15}+{:-<15}+{:-<10}+{:-<50}+{:-<10}+".format("", "", "", "", ""))
             print("|{:^15}|{:^15}|{:^10}|{:^50}|{:^10}|".format("ID", "Nombre", "Edad", "Salario", "Es_genio",
                                                                 "F_inicio"))
             print("+{:-<15}+{:-<15}+{:-<10}+{:-<50}+{:-<10}+".format("", "", "", "", ""))
 
             # Recorrer los registros y mostrarlos
-            for id, nombre, edad, salario, es_genio, f_inicio in libros:
+            for id, nombre, edad, salario, es_genio, f_inicio in tablitas:
                 print("|{:^15}|{:^15}|{:^10}|{:^50}|{:^10}|".format(id, nombre, edad, salario, es_genio, f_inicio))
 
             print("+{:-<15}+{:-<15}+{:-<10}+{:-<50}+{:-<10}+".format("", "", "", "", ""))
@@ -347,14 +347,14 @@ class Menu:
             cursor.execute(sentencia)
 
             # Mostrar los datos en un formato tabular
-            libros = cursor.fetchall()  # Obtener todos los registros de la consulta
+            tablitas = cursor.fetchall()  # Obtener todos los registros de la consulta
             print("+{:-<15}+{:-<15}+{:-<10}+{:-<50}+{:-<10}+".format("", "", "", "", ""))
             print("|{:^15}|{:^15}|{:^10}|{:^50}|{:^10}|".format("ID", "Nombre", "Edad", "Salario", "Es_genio",
                                                                 "F_inicio"))
             print("+{:-<15}+{:-<15}+{:-<10}+{:-<50}+{:-<10}+".format("", "", "", "", ""))
 
             # Recorrer los registros y mostrarlos
-            for id, nombre, edad, salario, es_genio, f_inicio in libros:
+            for id, nombre, edad, salario, es_genio, f_inicio in tablitas:
                 print("|{:^15}|{:^15}|{:^10}|{:^50}|{:^10}|".format(id, nombre, edad, salario, es_genio, f_inicio))
 
             print("+{:-<15}+{:-<15}+{:-<10}+{:-<50}+{:-<10}+".format("", "", "", "", ""))
