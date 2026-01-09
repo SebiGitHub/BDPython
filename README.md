@@ -1,5 +1,3 @@
-<img width="1083" height="721" alt="image" src="https://github.com/user-attachments/assets/ec557902-cc95-4c9a-882b-ba59660441f5" /># BDPython
-
 ## Qué es
 Proyecto en Python orientado a practicar acceso a bases de datos y operaciones CRUD, comparando distintos motores (MariaDB, SQLite y PostgreSQL) tiene funciones o módulos para conectarse a una base de datos, realizar consultas, insertar, actualizar o borrar datos — y otras operaciones de gestión de datos.
 
